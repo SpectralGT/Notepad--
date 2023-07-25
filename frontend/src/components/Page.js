@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function Page() {
-  const [data, setData] = useState([
+  const [data, setData] = useState(JSON.parse(window.localStorage.getItem('state'))||[
     ["p", "kk"],
     ["p", "aa"],
   ]);
@@ -16,9 +16,11 @@ function Page() {
               className="para"
               onKeyUp={(event) => {
                 var new_data = data;
-                new_data.splice(index, 1, event.currentTarget.innerText);
+                new_data[index][1] = event.currentTarget.innerText;
                 console.log(new_data);
                 setData(new_data);
+                window.localStorage.setItem('state',JSON.stringify(data))
+                console.log(JSON.stringify(data));
               }}
               contentEditable
             >
