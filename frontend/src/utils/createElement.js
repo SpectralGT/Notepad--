@@ -7,12 +7,12 @@ const UpdateData = (event, index, data, setData) => {
   window.localStorage.setItem("state", JSON.stringify(data));
 };
 
-export const createPara = (elements, e, index, data, setData) => {
+const createPara = (e, index, elements, data, setData) => {
   elements.push(
     <div
       key={index}
       className={ELEMENTS_CLASS.para}
-      onKeyUp={UpdateData(Event, index, data, setData)}
+      onKeyUp={(event) => UpdateData(event, index, data, setData)}
       contentEditable
       suppressContentEditableWarning={true}
     >
@@ -21,4 +21,24 @@ export const createPara = (elements, e, index, data, setData) => {
   );
 };
 
-export const createHeading = () => {};
+const createHeading = (e, index, elements, data, setData) => {
+  elements.push(
+    <h1
+      key={index}
+      className={ELEMENTS_CLASS.para}
+      onKeyUp={(event) => UpdateData(event, index, data, setData)}
+      contentEditable
+      suppressContentEditableWarning={true}
+    >
+      {e[1]}
+    </h1>
+  );
+};
+
+export const createElement = (e, index, elements, data, setData) => {
+  if (e[0] === ELEMENTS_CLASS.para) {
+    createPara(e, index, elements, data, setData);
+  } else if (e[0] === ELEMENTS_CLASS.heading) {
+    createHeading(e, index, elements, data, setData);
+  }
+};
