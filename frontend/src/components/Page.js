@@ -1,34 +1,30 @@
 import { useState } from "react";
+import ELEMENTS_CLASS from "../utils/ELEMENETS_CLASS.js";
+import { createPara } from "../utils/createElement.js";
 
 function Page() {
-  const [data, setData] = useState(JSON.parse(window.localStorage.getItem('state'))||[
-    ["p", "kk"],
-    ["p", "aa"],
-  ]);
+  const [data, setData] = useState(
+    JSON.parse(window.localStorage.getItem("state")) || [
+      ["p", "kk"],
+      ["p", "aa"],
+    ]
+  );
+
+  let elements = [];
+
+  const createElements = (e, index) => {
+    if (e[0] === ELEMENTS_CLASS.para) {
+      createPara(elements, e, index, data, setData);
+    }
+  };
 
   return (
     <div className="page">
       {data.map((e, index) => {
-        if (e[0] === "p") {
-          return (
-            <div
-              key={index}
-              className="para"
-              onKeyUp={(event) => {
-                var new_data = data;
-                new_data[index][1] = event.currentTarget.innerText;
-                console.log(new_data);
-                setData(new_data);
-                window.localStorage.setItem('state',JSON.stringify(data))
-                console.log(JSON.stringify(data));
-              }}
-              contentEditable
-            >
-              {e[1]}
-            </div>
-          );
-        }
+        createElements(e, index);
       })}
+
+      {elements}
     </div>
   );
 }
