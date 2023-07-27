@@ -9,14 +9,25 @@ const UpdateData = (event, index, data, setData) => {
 
 const createPara = (e, index, elements, data, setData) => {
   elements.push(
-    <div
-      key={index}
-      className={ELEMENTS_CLASS.para}
-      onKeyUp={(event) => UpdateData(event, index, data, setData)}
-      contentEditable
-      suppressContentEditableWarning={true}
-    >
-      {e[1]}
+    <div className="element" key={index}>
+      <button
+        className="removeButton"
+        onClick={() => {
+          data.splice(index, 1);
+          let x = data;
+          setData(x);
+        }}
+      >
+        X
+      </button>
+      <div
+        className={ELEMENTS_CLASS.para}
+        onKeyUp={(event) => UpdateData(event, index, data, setData)}
+        contentEditable
+        suppressContentEditableWarning={true}
+      >
+        {e[1]}
+      </div>
     </div>
   );
 };
