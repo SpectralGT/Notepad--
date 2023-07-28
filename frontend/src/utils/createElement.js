@@ -13,9 +13,7 @@ const createPara = (e, index, elements, data, setData) => {
       <button
         className="removeButton"
         onClick={() => {
-          data.splice(index, 1);
-          let x = data;
-          setData(x);
+          setData((data) => data.filter((ele) => ele !== e));
         }}
       >
         X
@@ -34,15 +32,24 @@ const createPara = (e, index, elements, data, setData) => {
 
 const createHeading = (e, index, elements, data, setData) => {
   elements.push(
-    <h1
-      key={index}
-      className={ELEMENTS_CLASS.para}
-      onKeyUp={(event) => UpdateData(event, index, data, setData)}
-      contentEditable
-      suppressContentEditableWarning={true}
-    >
-      {e[1]}
-    </h1>
+    <div className={ELEMENTS_CLASS.element} key={index}>
+      <button
+        className="removeButton"
+        onClick={() => {
+          setData((data) => data.filter((ele) => ele !== e));
+        }}
+      >
+        X
+      </button>
+      <h1
+        className={ELEMENTS_CLASS.para}
+        onKeyUp={(event) => UpdateData(event, index, data, setData)}
+        contentEditable
+        suppressContentEditableWarning={true}
+      >
+        {e[1]}
+      </h1>
+    </div>
   );
 };
 

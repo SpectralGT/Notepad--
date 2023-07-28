@@ -4,7 +4,7 @@ import CreateElementBar from "./CreateElementBar.js";
 
 function Page() {
   const [data, setData] = useState(
-    // JSON.parse(window.localStorage.getItem("state")) || 
+    // JSON.parse(window.localStorage.getItem("state")) ||
     [
       ["p", "kk"],
       ["p", "aa"],
@@ -22,10 +22,7 @@ function Page() {
 
       {elements}
 
-      <CreateElementBar
-        data={data}
-        setData={setData}
-      ></CreateElementBar>
+      <CreateElementBar data={data} setData={setData}></CreateElementBar>
     </div>
   );
 }
