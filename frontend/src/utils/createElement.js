@@ -1,6 +1,6 @@
 import ELEMENTS_CLASS from "./ELEMENETS_CLASS";
 
-const UpdateData = (event, index, data, setData) => {
+const UpdateStateOnType = (event, index, data, setData) => {
   var new_data = data;
   new_data[index][1] = event.currentTarget.innerText;
   setData(new_data);
@@ -20,7 +20,7 @@ const createPara = (e, index, elements, data, setData) => {
       </button>
       <div
         className={ELEMENTS_CLASS.para}
-        onKeyUp={(event) => UpdateData(event, index, data, setData)}
+        onKeyUp={(event) => UpdateStateOnType(event, index, data, setData)}
         contentEditable
         suppressContentEditableWarning={true}
       >
@@ -43,7 +43,7 @@ const createHeading = (e, index, elements, data, setData) => {
       </button>
       <h1
         className={ELEMENTS_CLASS.para}
-        onKeyUp={(event) => UpdateData(event, index, data, setData)}
+        onKeyUp={(event) => UpdateStateOnType(event, index, data, setData)}
         contentEditable
         suppressContentEditableWarning={true}
       >

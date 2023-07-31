@@ -7,14 +7,32 @@
   border-radius: 10px;
 }
 
-.p{
+.element{
   display: block;
-  padding: 1em 1em;
   width: 100%;
+  height: fit-content;
+}
+
+.p{
+  display: inline-block;
+  padding: 1em 1em;
   font-size: 1.5em;
   color: #dddddd;
 }
 
 [contenteditable]{
   outline: 0px solid transparent;
+}
+
+button{
+  border: none;
+  background-color: rgb(50, 70, 50);
+}
+
+.removeButton{
+  background-color: transparent;
+  margin-left: 1rem;
+  padding: 0.5em 0.5em;
+  color: white;
+  font-weight: 900;
 }
