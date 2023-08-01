@@ -10,6 +10,7 @@
 .element{
   display: block;
   width: 100%;
+  max-width: 100%;
   height: fit-content;
 }
 
@@ -18,21 +19,51 @@
   padding: 1em 1em;
   font-size: 1.5em;
   color: #dddddd;
+  max-width: 90%;
+}
+
+.h{
+  display: inline-block;
+  padding: 1em 1em;
+  font-size: 2em;
+  color: #dddddd;
+  font-weight: 900;
+  max-width: 90%;
 }
 
 [contenteditable]{
   outline: 0px solid transparent;
 }
 
-button{
+.createElementBar{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  
+}
+
+.createElementBar button{
   border: none;
   background-color: rgb(50, 70, 50);
+  color:whitesmoke;
+  padding:1em;
+  border-radius: 5px;
+  margin-top: 3em;
+  height: 5vh;
+  text-align: center;
+  font-size: 3vw;
+  width: 20vh;
 }
 
 .removeButton{
   background-color: transparent;
-  margin-left: 1rem;
-  padding: 0.5em 0.5em;
   color: white;
   font-weight: 900;
+  border: none;
+  min-height: 100%;
+  width: 10%;
+  font-size: 0.6em;
+  text-align: center;
 }

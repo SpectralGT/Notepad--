@@ -11,7 +11,7 @@ export default function CreateElementBar({ data, setData }) {
   };
 
   return (
-    <div className="CreateElementBar">
+    <div className="createElementBar">
       <button onClick={addPara}>Add Paragraph</button>
       <button onClick={addHeading}>Add Heading</button>
     </div>

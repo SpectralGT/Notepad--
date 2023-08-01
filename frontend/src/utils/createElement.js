@@ -42,7 +42,7 @@ const createHeading = (e, index, elements, data, setData) => {
         X
       </button>
       <h1
-        className={ELEMENTS_CLASS.para}
+        className={ELEMENTS_CLASS.heading}
         onKeyUp={(event) => UpdateStateOnType(event, index, data, setData)}
         contentEditable
         suppressContentEditableWarning={true}
