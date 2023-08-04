@@ -14,6 +14,10 @@ const createPara = (e, index, elements, data, setData) => {
         className="removeButton"
         onClick={() => {
           setData((data) => data.filter((ele) => ele !== e));
+          window.localStorage.setItem(
+            "state",
+            JSON.stringify(data.filter((ele) => ele !== e))
+          );
         }}
       >
         X
@@ -23,6 +27,11 @@ const createPara = (e, index, elements, data, setData) => {
         onKeyUp={(event) => UpdateStateOnType(event, index, data, setData)}
         contentEditable
         suppressContentEditableWarning={true}
+        onPaste={(e) => {
+          e.preventDefault();
+          var text = e.clipboardData.getData("text/plain");
+          document.execCommand("insertText", false, text);
+        }}
       >
         {e[1]}
       </div>
@@ -37,6 +46,10 @@ const createHeading = (e, index, elements, data, setData) => {
         className="removeButton"
         onClick={() => {
           setData((data) => data.filter((ele) => ele !== e));
+          window.localStorage.setItem(
+            "state",
+            JSON.stringify(data.filter((ele) => ele !== e))
+          );
         }}
       >
         X
@@ -46,6 +59,11 @@ const createHeading = (e, index, elements, data, setData) => {
         onKeyUp={(event) => UpdateStateOnType(event, index, data, setData)}
         contentEditable
         suppressContentEditableWarning={true}
+        onPaste={(e) => {
+          e.preventDefault();
+          var text = e.clipboardData.getData("text/plain");
+          document.execCommand("insertText", false, text);
+        }}
       >
         {e[1]}
       </h1>

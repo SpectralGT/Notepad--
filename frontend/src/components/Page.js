@@ -4,11 +4,8 @@ import CreateElementBar from "./CreateElementBar.js";
 
 function Page() {
   const [data, setData] = useState(
-    // JSON.parse(window.localStorage.getItem("state")) ||
+    JSON.parse(window.localStorage.getItem("state")) ||
     [
-      ["p", "kk"],
-      ["p", "aa"],
-      ["h", "heading"],
     ]
   );
 
